@@ -1,6 +1,5 @@
 ---
 title: "18V Cordless Drill That Actually Lasts"
-slug: "cordless-drill"
 category: "Workshop"
 blurb: "Survived building a deck and still has enough grunt for the shed projects."
 price_hint: "$89.99"

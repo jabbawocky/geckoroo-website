@@ -4,7 +4,6 @@ const picksCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
     category: z.enum(['Camping', 'Workshop', 'Kitchen', 'Tech', 'Garden', 'Sports']),
     blurb: z.string(),
     price_hint: z.string(),

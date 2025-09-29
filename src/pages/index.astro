@@ -65,7 +65,7 @@ const categories = [
             </p>
             <div class="flex flex-col sm:flex-row gap-3">
               <a
-                href={`/go/${featuredPick.data.slug}`}
+                href={`/go/${featuredPick.slug}`}
                 target="_blank"
                 rel="sponsored nofollow noopener"
                 class="bg-gecko-600 hover:bg-gecko-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors"
@@ -73,7 +73,7 @@ const categories = [
                 See Price (affiliate)
               </a>
               <button
-                data-modal-trigger={featuredPick.data.slug}
+                data-modal-trigger={featuredPick.slug}
                 class="border-2 border-gecko-600 hover:bg-gecko-50 dark:hover:bg-gecko-900/20 text-gecko-600 dark:text-gecko-400 py-3 px-6 rounded-lg font-semibold transition-colors"
               >
                 Why we like it
@@ -83,7 +83,7 @@ const categories = [
         </div>
       </div>
       <Modal
-        id={featuredPick.data.slug}
+        id={featuredPick.slug}
         title={featuredPick.data.title}
         pros={featuredPick.data.pros}
         cons={featuredPick.data.cons}
@@ -100,7 +100,7 @@ const categories = [
         <>
           <Card
             title={pick.data.title}
-            slug={pick.data.slug}
+            slug={pick.slug}
             category={pick.data.category}
             blurb={pick.data.blurb}
             priceHint={pick.data.price_hint}
@@ -108,7 +108,7 @@ const categories = [
             badges={pick.data.badges}
           />
           <Modal
-            id={pick.data.slug}
+            id={pick.slug}
             title={pick.data.title}
             pros={pick.data.pros}
             cons={pick.data.cons}

@@ -1,6 +1,5 @@
 ---
 title: "Retractable Garden Hose Reel (30m)"
-slug: "garden-hose-reel"
 category: "Garden"
 blurb: "No more hose tangles. Retracts smooth, locks where you want it."
 price_hint: "$129.00"

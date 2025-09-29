@@ -1,6 +1,5 @@
 ---
 title: "Resistance Band Set for Home Workouts"
-slug: "resistance-bands"
 category: "Sports"
 blurb: "Gym-quality workout without the gym prices. These bands haven't snapped yet."
 price_hint: "$34.99"

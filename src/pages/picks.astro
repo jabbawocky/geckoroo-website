@@ -50,7 +50,7 @@ const categories = ['All', 'Camping', 'Workshop', 'Kitchen', 'Tech', 'Garden', '
         <>
           <Card
             title={pick.data.title}
-            slug={pick.data.slug}
+            slug={pick.slug}
             category={pick.data.category}
             blurb={pick.data.blurb}
             priceHint={pick.data.price_hint}
@@ -59,7 +59,7 @@ const categories = ['All', 'Camping', 'Workshop', 'Kitchen', 'Tech', 'Garden', '
             featured={pick.data.featured}
           />
           <Modal
-            id={pick.data.slug}
+            id={pick.slug}
             title={pick.data.title}
             pros={pick.data.pros}
             cons={pick.data.cons}

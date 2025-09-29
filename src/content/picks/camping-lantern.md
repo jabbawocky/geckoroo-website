@@ -1,6 +1,5 @@
 ---
 title: "Rechargeable Camping Lantern (Under $30)"
-slug: "camping-lantern"
 category: "Camping"
 blurb: "Lightweight, bright, and still going after a weekend in the bush."
 price_hint: "$29.99"

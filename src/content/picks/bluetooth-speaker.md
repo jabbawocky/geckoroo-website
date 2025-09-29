@@ -1,6 +1,5 @@
 ---
 title: "Waterproof Bluetooth Speaker That Survived The Pool Party"
-slug: "bluetooth-speaker"
 category: "Tech"
 blurb: "Dropped in the pool twice, still pumping tunes at full volume."
 price_hint: "$59.99"

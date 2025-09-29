@@ -1,6 +1,5 @@
 ---
 title: "Pre-Seasoned Cast Iron Pan (26cm)"
-slug: "cast-iron-pan"
 category: "Kitchen"
 blurb: "From camp cookups to Sunday roasts - this pan does it all."
 price_hint: "$45.00"
