@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+import Modal from '../components/Modal.astro';
+import { getCollection } from 'astro:content';
+
+const allPicks = await getCollection('picks');
+const featuredPick = allPicks.find(p => p.data.featured) || allPicks[0];
+const latestPicks = allPicks.slice(0, 6);
+
+const categories = [
+  { name: 'Camping', icon: '⛺', color: 'bg-green-500' },
+  { name: 'Workshop', icon: '🔧', color: 'bg-blue-500' },
+  { name: 'Kitchen', icon: '🍳', color: 'bg-orange-500' },
+  { name: 'Tech', icon: '💻', color: 'bg-purple-500' },
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-gecko-100 to-gecko-50 dark:from-gecko-900 dark:to-gray-900 py-16 md:py-24">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+        GeckoRoo Picks of the Week
+      </h1>
+      <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        Stuff we've tried, abused, or built with. If it survives, it gets a shout.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/picks" class="bg-gecko-600 hover:bg-gecko-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+          View All Picks
+        </a>
+        <a href="https://youtube.com/@geckoroo" target="_blank" rel="noopener noreferrer"
+           class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+          Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pick of the Week -->
+  {featuredPick && (
+    <section class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Pick of the Week</h2>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-0">
+          <div class="aspect-[4/3] bg-gray-100 dark:bg-gray-700">
+            <img
+              src={featuredPick.data.image}
+              alt={featuredPick.data.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-8 flex flex-col justify-center">
+            <div class="mb-4">
+              <span class="inline-block px-3 py-1 bg-gecko-500 text-white text-sm font-semibold rounded-full">
+                Pick of the Week
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              {featuredPick.data.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              {featuredPick.data.blurb}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                href={`/go/${featuredPick.data.slug}`}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+                class="bg-gecko-600 hover:bg-gecko-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors"
+              >
+                See Price (affiliate)
+              </a>
+              <button
+                data-modal-trigger={featuredPick.data.slug}
+                class="border-2 border-gecko-600 hover:bg-gecko-50 dark:hover:bg-gecko-900/20 text-gecko-600 dark:text-gecko-400 py-3 px-6 rounded-lg font-semibold transition-colors"
+              >
+                Why we like it
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Modal
+        id={featuredPick.data.slug}
+        title={featuredPick.data.title}
+        pros={featuredPick.data.pros}
+        cons={featuredPick.data.cons}
+        videoId={featuredPick.data.yt_video_id}
+      />
+    </section>
+  )}
+
+  <!-- Latest Picks Grid -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Latest Picks</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {latestPicks.map((pick) => (
+        <>
+          <Card
+            title={pick.data.title}
+            slug={pick.data.slug}
+            category={pick.data.category}
+            blurb={pick.data.blurb}
+            priceHint={pick.data.price_hint}
+            image={pick.data.image}
+            badges={pick.data.badges}
+          />
+          <Modal
+            id={pick.data.slug}
+            title={pick.data.title}
+            pros={pick.data.pros}
+            cons={pick.data.cons}
+            videoId={pick.data.yt_video_id}
+          />
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Browse by Category</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {categories.map((category) => (
+        <a
+          href={`/picks?category=${category.name.toLowerCase()}`}
+          class="group bg-white dark:bg-gray-800 rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+        >
+          <div class={`${category.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl group-hover:scale-110 transition-transform`}>
+            {category.icon}
+          </div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">{category.name}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Video Strip -->
+  <section class="bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Latest Videos</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Product Review Video 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Testing the latest camping gear in extreme conditions</p>
+        </div>
+        <div>
+          <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Product Review Video 2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full"
+            ></iframe>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Workshop tools that actually last - Our top picks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Block -->
+  <section class="container mx-auto px-4 py-12">
+    <div class="bg-gecko-50 dark:bg-gecko-900/20 rounded-xl p-8">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How we pick (and why we bin some)</h2>
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <div>
+          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Real Testing</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Every product gets used, abused, and pushed to its limits. No sponsored fluff pieces here.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Value Focus</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            We look for gear that punches above its weight. Good enough isn't good enough.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Transparent Reviews</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            We call out the good and the bad. If something's rubbish, we'll tell you.
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gecko-200 dark:border-gecko-800 pt-4">
+        <p class="text-xs text-gray-600 dark:text-gray-400">
+          <strong>Affiliate Disclosure:</strong> We earn commissions from some links, but this never affects our recommendations.
+          Products are chosen based on genuine value and real-world testing. Your trust matters more than commissions.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

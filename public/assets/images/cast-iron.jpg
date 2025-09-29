@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#d97706"/>
+  <ellipse cx="200" cy="150" rx="120" ry="80" fill="#1e293b"/>
+  <ellipse cx="200" cy="150" rx="100" ry="60" fill="#334155"/>
+  <rect x="60" y="140" width="60" height="20" fill="#1e293b"/>
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Cast Iron Pan</text>
+</svg>

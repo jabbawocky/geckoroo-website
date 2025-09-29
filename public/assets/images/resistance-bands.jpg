@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#ef4444"/>
+  <rect x="100" y="140" width="200" height="8" fill="#fbbf24" rx="4"/>
+  <rect x="100" y="152" width="200" height="8" fill="#3b82f6" rx="4"/>
+  <rect x="100" y="164" width="200" height="8" fill="#10b981" rx="4"/>
+  <circle cx="90" cy="154" r="12" fill="#1e293b"/>
+  <circle cx="310" cy="154" r="12" fill="#1e293b"/>
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Resistance Bands</text>
+</svg>

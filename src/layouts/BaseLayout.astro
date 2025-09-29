@@ -1,0 +1,68 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "GeckoRoo - Stuff we've tried, abused, or built with. If it survives, it gets a shout." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | GeckoRoo</title>
+
+    <!-- Plausible Analytics placeholder -->
+    <!-- <script defer data-domain="geckoroo.com" src="https://plausible.io/js/script.js"></script> -->
+
+    <!-- Dark mode script -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Pagefind UI -->
+    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/_pagefind/pagefind-ui.js"></script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --gecko-green: #22c55e;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+  }
+
+  .pagefind-ui__search-input {
+    @apply dark:bg-gray-800 dark:text-gray-100;
+  }
+</style>

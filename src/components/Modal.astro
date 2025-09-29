@@ -1,0 +1,124 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+  pros: string[];
+  cons?: string[];
+  videoId?: string;
+}
+
+const { id, title, pros, cons = [], videoId } = Astro.props;
+---
+
+<div
+  id={`modal-${id}`}
+  class="modal hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4"
+  data-modal={id}
+>
+  <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
+        <button
+          data-modal-close={id}
+          class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      {videoId && (
+        <div class="mb-6">
+          <div class="aspect-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={title}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full rounded"
+            ></iframe>
+          </div>
+        </div>
+      )}
+
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-semibold text-lg text-gecko-700 dark:text-gecko-400 mb-2">What's Good</h3>
+          <ul class="space-y-2">
+            {pros.map((pro) => (
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">{pro}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {cons && cons.length > 0 && (
+          <div>
+            <h3 class="font-semibold text-lg text-red-700 dark:text-red-400 mb-2">What Could Be Better</h3>
+            <ul class="space-y-2">
+              {cons.map((con) => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-300">{con}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button
+          data-modal-close={id}
+          class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 py-2 px-4 rounded font-semibold"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle modal triggers
+    document.querySelectorAll('[data-modal-trigger]').forEach((trigger) => {
+      const modalId = trigger.getAttribute('data-modal-trigger');
+      trigger.addEventListener('click', () => {
+        const modal = document.getElementById(`modal-${modalId}`);
+        if (modal) {
+          modal.classList.remove('hidden');
+        }
+      });
+    });
+
+    // Handle modal close buttons
+    document.querySelectorAll('[data-modal-close]').forEach((closeBtn) => {
+      const modalId = closeBtn.getAttribute('data-modal-close');
+      closeBtn.addEventListener('click', () => {
+        const modal = document.getElementById(`modal-${modalId}`);
+        if (modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach((modal) => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

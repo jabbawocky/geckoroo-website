@@ -1,0 +1,41 @@
+# Robots.txt for GeckoRoo
+# Block AI bots from scraping our content
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Allow search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Default for all other bots
+User-agent: *
+Allow: /
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://geckoroo.com/sitemap-index.xml

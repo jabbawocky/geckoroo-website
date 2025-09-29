@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#10b981"/>
+  <circle cx="200" cy="150" r="80" fill="none" stroke="#1e293b" stroke-width="15"/>
+  <circle cx="200" cy="150" r="50" fill="none" stroke="#64748b" stroke-width="8"/>
+  <rect x="195" y="70" width="10" height="40" fill="#1e293b"/>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Garden Hose Reel</text>
+</svg>

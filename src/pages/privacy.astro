@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy">
+  <div class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Privacy Policy & Disclosures</h1>
+
+    <div class="prose prose-lg dark:prose-invert max-w-none space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Privacy Policy</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Last updated: {new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Information We Collect</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          GeckoRoo is a simple content site. We collect minimal information:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4 space-y-1">
+          <li>Basic analytics data (via Plausible Analytics - privacy-focused, no cookies)</li>
+          <li>Information you voluntarily provide when contacting us</li>
+          <li>No personal data is collected automatically</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">How We Use Information</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Any information collected is used solely to:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4 space-y-1">
+          <li>Understand which content is most helpful to our readers</li>
+          <li>Improve our website and content</li>
+          <li>Respond to your inquiries (if you contact us)</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Cookies</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          We use minimal cookies:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4 space-y-1">
+          <li>Theme preference (dark/light mode) - stored locally on your device</li>
+          <li>No tracking cookies</li>
+          <li>No advertising cookies</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Third-Party Services</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          When you click affiliate links, you'll be taken to third-party websites (Amazon, Temu, etc.) which have their own privacy policies. We encourage you to review their policies.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Affiliate Disclosure</h2>
+        <div class="bg-gecko-50 dark:bg-gecko-900/20 rounded-lg p-6">
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            <strong>Federal Trade Commission (FTC) Disclosure:</strong>
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            GeckoRoo participates in various affiliate advertising programs, including but not limited to:
+          </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
+            <li>Amazon Associates Program</li>
+            <li>Temu Affiliate Program</li>
+            <li>Other retail affiliate networks</li>
+          </ul>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            This means we earn commissions on qualifying purchases made through our links. These are affiliate advertising programs designed to provide a means for sites to earn advertising fees by advertising and linking to retailer websites.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            <strong>Our Commitment:</strong>
+          </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
+            <li>All opinions expressed are our own, based on personal testing and experience</li>
+            <li>Affiliate relationships never influence our reviews or recommendations</li>
+            <li>We only recommend products we genuinely believe provide value</li>
+            <li>All affiliate links include rel="sponsored" tags as per best practices</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Australian Consumer Law</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          As an Australian business (ABN: 11 642 784 263), we comply with Australian Consumer Law (ACL) requirements:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4 space-y-1">
+          <li>All content represents genuine opinions and experiences</li>
+          <li>Commercial relationships are clearly disclosed</li>
+          <li>No false or misleading representations are made</li>
+          <li>Product claims are based on actual testing and use</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Medical & Safety Disclaimer</h2>
+        <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            <strong>Important:</strong>
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            GeckoRoo content is for informational purposes only. We are not professionals in any field other than having opinions about gear. Always:
+          </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+            <li>Follow manufacturer safety guidelines</li>
+            <li>Use products as intended</li>
+            <li>Consult professionals for specialized advice</li>
+            <li>Do your own research before making purchases</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Contact Information</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          For privacy concerns or questions about our disclosures:
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          <strong>GeckoRoo</strong><br>
+          ABN: 11 642 784 263<br>
+          Email: privacy@geckoroo.com<br>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Changes to This Policy</h2>
+        <p class="text-gray-600 dark:text-gray-400">
+          We may update this policy from time to time. Changes will be posted on this page with an updated revision date.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
