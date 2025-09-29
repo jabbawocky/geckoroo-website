@@ -20,6 +20,11 @@ const { title, description = "GeckoRoo - Stuff we've tried, abused, or built wit
     <meta name="generator" content={Astro.generator} />
     <title>{title} | GeckoRoo</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Plausible Analytics placeholder -->
     <!-- <script defer data-domain="geckoroo.com" src="https://plausible.io/js/script.js"></script> -->
 
@@ -40,7 +45,7 @@ const { title, description = "GeckoRoo - Stuff we've tried, abused, or built wit
       }
     </script>
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+  <body class="bg-brand-sand dark:bg-brand-navy text-brand-navy dark:text-brand-sand min-h-screen flex flex-col font-body">
     <Header />
     <main class="flex-grow">
       <slot />
@@ -51,14 +56,26 @@ const { title, description = "GeckoRoo - Stuff we've tried, abused, or built wit
 
 <style is:global>
   :root {
-    --gecko-green: #22c55e;
+    --brand-orange: #F97316;
+    --brand-yellow: #FFD700;
+    --brand-navy: #1E1B4B;
+    --brand-sand: #FFFDF7;
   }
 
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', system-ui, sans-serif;
   }
 
   .pagefind-ui__search-input {
-    @apply dark:bg-gray-800 dark:text-gray-100;
+    @apply dark:bg-brand-navy/50 dark:text-brand-sand border-brand-orange/20;
+  }
+
+  /* Smooth transitions for dark mode */
+  * {
+    @apply transition-colors duration-200;
   }
 </style>

@@ -5,6 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Brand Colors
+        'brand-orange': '#F97316',
+        'brand-yellow': '#FFD700',
+        'brand-navy': '#1E1B4B',
+        'brand-sand': '#FFFDF7',
+
+        // Legacy gecko colors (kept for compatibility)
         gecko: {
           50: '#f0fdf4',
           100: '#dcfce7',
@@ -19,7 +26,13 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'heading': ['Fredoka', 'system-ui', '-apple-system', 'sans-serif'],
+        'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      animation: {
+        'bounce-slow': 'bounce 2s infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },

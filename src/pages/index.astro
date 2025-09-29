@@ -9,29 +9,30 @@ const featuredPick = allPicks.find(p => p.data.featured) || allPicks[0];
 const latestPicks = allPicks.slice(0, 6);
 
 const categories = [
-  { name: 'Camping', icon: '⛺', color: 'bg-green-500' },
-  { name: 'Workshop', icon: '🔧', color: 'bg-blue-500' },
-  { name: 'Kitchen', icon: '🍳', color: 'bg-orange-500' },
-  { name: 'Tech', icon: '💻', color: 'bg-purple-500' },
+  { name: 'Camping', icon: '⛺', color: 'bg-brand-orange' },
+  { name: 'Workshop', icon: '🔧', color: 'bg-brand-navy' },
+  { name: 'Kitchen', icon: '🍳', color: 'bg-brand-yellow' },
+  { name: 'Tech', icon: '💻', color: 'bg-brand-orange' },
 ];
 ---
 
 <BaseLayout title="Home">
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-gecko-100 to-gecko-50 dark:from-gecko-900 dark:to-gray-900 py-16 md:py-24">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+  <section class="relative bg-gradient-to-br from-brand-sand via-white to-brand-yellow/10 dark:from-brand-navy dark:via-brand-navy/90 dark:to-black py-20 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-5"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h1 class="text-5xl md:text-7xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-6 animate-fade-in">
         GeckoRoo Picks of the Week
       </h1>
-      <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+      <p class="text-xl md:text-2xl text-brand-navy/80 dark:text-brand-sand/80 mb-10 max-w-2xl mx-auto font-body">
         Stuff we've tried, abused, or built with. If it survives, it gets a shout.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/picks" class="bg-gecko-600 hover:bg-gecko-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+        <a href="/picks" class="bg-brand-orange hover:bg-brand-navy text-white hover:text-brand-yellow py-4 px-8 rounded-full font-heading font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
           View All Picks
         </a>
         <a href="https://youtube.com/@geckoroo" target="_blank" rel="noopener noreferrer"
-           class="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+           class="border-2 border-brand-navy dark:border-brand-yellow hover:bg-brand-yellow dark:hover:bg-brand-yellow hover:text-brand-navy dark:hover:text-brand-navy text-brand-navy dark:text-brand-yellow py-4 px-8 rounded-full font-heading font-semibold transition-all duration-300 transform hover:scale-105">
           Watch on YouTube
         </a>
       </div>
@@ -40,27 +41,27 @@ const categories = [
 
   <!-- Pick of the Week -->
   {featuredPick && (
-    <section class="container mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Pick of the Week</h2>
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden">
+    <section class="container mx-auto px-4 py-16">
+      <h2 class="text-4xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-10 text-center">Pick of the Week</h2>
+      <div class="bg-white dark:bg-brand-navy/50 rounded-2xl shadow-2xl overflow-hidden border border-brand-orange/20 dark:border-brand-yellow/20">
         <div class="grid md:grid-cols-2 gap-0">
-          <div class="aspect-[4/3] bg-gray-100 dark:bg-gray-700">
+          <div class="aspect-[4/3] bg-gradient-to-br from-brand-orange/10 to-brand-yellow/10 dark:from-brand-orange/20 dark:to-brand-yellow/20">
             <img
               src={featuredPick.data.image}
               alt={featuredPick.data.title}
               class="w-full h-full object-cover"
             />
           </div>
-          <div class="p-8 flex flex-col justify-center">
+          <div class="p-8 md:p-12 flex flex-col justify-center">
             <div class="mb-4">
-              <span class="inline-block px-3 py-1 bg-gecko-500 text-white text-sm font-semibold rounded-full">
+              <span class="inline-block px-4 py-2 bg-brand-yellow text-brand-navy text-sm font-heading font-bold rounded-full shadow-md">
                 Pick of the Week
               </span>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h3 class="text-3xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-4">
               {featuredPick.data.title}
             </h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">
+            <p class="text-brand-navy/70 dark:text-brand-sand/70 mb-6 text-lg">
               {featuredPick.data.blurb}
             </p>
             <div class="flex flex-col sm:flex-row gap-3">
@@ -68,13 +69,13 @@ const categories = [
                 href={`/go/${featuredPick.slug}`}
                 target="_blank"
                 rel="sponsored nofollow noopener"
-                class="bg-gecko-600 hover:bg-gecko-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors"
+                class="bg-brand-orange hover:bg-brand-navy text-white hover:text-brand-yellow py-3 px-6 rounded-lg font-heading font-semibold text-center transition-all duration-300 shadow-lg transform hover:-translate-y-1"
               >
                 See Price (affiliate)
               </a>
               <button
                 data-modal-trigger={featuredPick.slug}
-                class="border-2 border-gecko-600 hover:bg-gecko-50 dark:hover:bg-gecko-900/20 text-gecko-600 dark:text-gecko-400 py-3 px-6 rounded-lg font-semibold transition-colors"
+                class="border-2 border-brand-navy dark:border-brand-yellow hover:bg-brand-yellow dark:hover:bg-brand-yellow text-brand-navy dark:text-brand-yellow hover:text-brand-navy dark:hover:text-brand-navy py-3 px-6 rounded-lg font-heading font-semibold transition-all duration-300"
               >
                 Why we like it
               </button>
@@ -93,57 +94,59 @@ const categories = [
   )}
 
   <!-- Latest Picks Grid -->
-  <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Latest Picks</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {latestPicks.map((pick) => (
-        <>
-          <Card
-            title={pick.data.title}
-            slug={pick.slug}
-            category={pick.data.category}
-            blurb={pick.data.blurb}
-            priceHint={pick.data.price_hint}
-            image={pick.data.image}
-            badges={pick.data.badges}
-          />
-          <Modal
-            id={pick.slug}
-            title={pick.data.title}
-            pros={pick.data.pros}
-            cons={pick.data.cons}
-            videoId={pick.data.yt_video_id}
-          />
-        </>
-      ))}
+  <section class="bg-gradient-to-b from-white to-brand-sand/30 dark:from-brand-navy dark:to-black py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-10 text-center">Latest Picks</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {latestPicks.map((pick) => (
+          <>
+            <Card
+              title={pick.data.title}
+              slug={pick.slug}
+              category={pick.data.category}
+              blurb={pick.data.blurb}
+              priceHint={pick.data.price_hint}
+              image={pick.data.image}
+              badges={pick.data.badges}
+            />
+            <Modal
+              id={pick.slug}
+              title={pick.data.title}
+              pros={pick.data.pros}
+              cons={pick.data.cons}
+              videoId={pick.data.yt_video_id}
+            />
+          </>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- Categories -->
-  <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Browse by Category</h2>
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-10 text-center">Browse by Category</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       {categories.map((category) => (
         <a
           href={`/picks?category=${category.name.toLowerCase()}`}
-          class="group bg-white dark:bg-gray-800 rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+          class="group bg-white dark:bg-brand-navy/50 rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 border border-brand-sand/20 dark:border-brand-yellow/10"
         >
-          <div class={`${category.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl group-hover:scale-110 transition-transform`}>
+          <div class={`${category.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl group-hover:scale-110 transition-transform text-white`}>
             {category.icon}
           </div>
-          <h3 class="font-semibold text-gray-900 dark:text-white">{category.name}</h3>
+          <h3 class="font-heading font-semibold text-brand-navy dark:text-brand-sand">{category.name}</h3>
         </a>
       ))}
     </div>
   </section>
 
   <!-- Video Strip -->
-  <section class="bg-gray-100 dark:bg-gray-800 py-12">
+  <section class="bg-gradient-to-r from-brand-orange/10 via-brand-yellow/10 to-brand-orange/10 dark:from-brand-navy dark:via-black dark:to-brand-navy py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Latest Videos</h2>
+      <h2 class="text-4xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-10 text-center">Latest Videos</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
-          <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-brand-orange/20 to-brand-yellow/20 dark:from-brand-orange/10 dark:to-brand-yellow/10 rounded-xl overflow-hidden shadow-lg">
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
               title="Product Review Video 1"
@@ -153,10 +156,10 @@ const categories = [
               class="w-full h-full"
             ></iframe>
           </div>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Testing the latest camping gear in extreme conditions</p>
+          <p class="mt-3 text-sm text-brand-navy/70 dark:text-brand-sand/70 font-body">Testing the latest camping gear in extreme conditions</p>
         </div>
         <div>
-          <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-brand-orange/20 to-brand-yellow/20 dark:from-brand-orange/10 dark:to-brand-yellow/10 rounded-xl overflow-hidden shadow-lg">
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
               title="Product Review Video 2"
@@ -166,38 +169,38 @@ const categories = [
               class="w-full h-full"
             ></iframe>
           </div>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Workshop tools that actually last - Our top picks</p>
+          <p class="mt-3 text-sm text-brand-navy/70 dark:text-brand-sand/70 font-body">Workshop tools that actually last - Our top picks</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Trust Block -->
-  <section class="container mx-auto px-4 py-12">
-    <div class="bg-gecko-50 dark:bg-gecko-900/20 rounded-xl p-8">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">How we pick (and why we bin some)</h2>
-      <div class="grid md:grid-cols-3 gap-6 mb-6">
+  <section class="container mx-auto px-4 py-16">
+    <div class="bg-gradient-to-br from-brand-yellow/20 to-brand-orange/20 dark:from-brand-yellow/10 dark:to-brand-orange/10 rounded-2xl p-8 md:p-12 border border-brand-orange/20 dark:border-brand-yellow/20">
+      <h2 class="text-3xl font-heading font-bold text-brand-navy dark:text-brand-sand mb-6">How we pick (and why we bin some)</h2>
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Real Testing</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="font-heading font-semibold text-brand-orange dark:text-brand-yellow mb-3 text-lg">Real Testing</h3>
+          <p class="text-sm text-brand-navy/70 dark:text-brand-sand/70">
             Every product gets used, abused, and pushed to its limits. No sponsored fluff pieces here.
           </p>
         </div>
         <div>
-          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Value Focus</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="font-heading font-semibold text-brand-orange dark:text-brand-yellow mb-3 text-lg">Value Focus</h3>
+          <p class="text-sm text-brand-navy/70 dark:text-brand-sand/70">
             We look for gear that punches above its weight. Good enough isn't good enough.
           </p>
         </div>
         <div>
-          <h3 class="font-semibold text-gecko-700 dark:text-gecko-400 mb-2">Transparent Reviews</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <h3 class="font-heading font-semibold text-brand-orange dark:text-brand-yellow mb-3 text-lg">Transparent Reviews</h3>
+          <p class="text-sm text-brand-navy/70 dark:text-brand-sand/70">
             We call out the good and the bad. If something's rubbish, we'll tell you.
           </p>
         </div>
       </div>
-      <div class="border-t border-gecko-200 dark:border-gecko-800 pt-4">
-        <p class="text-xs text-gray-600 dark:text-gray-400">
+      <div class="border-t border-brand-orange/20 dark:border-brand-yellow/20 pt-6">
+        <p class="text-xs text-brand-navy/60 dark:text-brand-sand/60">
           <strong>Affiliate Disclosure:</strong> We earn commissions from some links, but this never affects our recommendations.
           Products are chosen based on genuine value and real-world testing. Your trust matters more than commissions.
         </p>
@@ -205,3 +208,20 @@ const categories = [
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+</style>

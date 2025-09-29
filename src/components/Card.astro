@@ -13,41 +13,41 @@ export interface Props {
 const { title, slug, category, blurb, priceHint, image, badges = [], featured = false } = Astro.props;
 ---
 
-<article class={`group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow ${featured ? 'ring-2 ring-gecko-500' : ''}`}>
-  <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-700">
+<article class={`group bg-white dark:bg-brand-navy/50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border ${featured ? 'border-brand-orange shadow-lg' : 'border-brand-sand/20 dark:border-brand-yellow/10 shadow-md'}`}>
+  <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-brand-orange/10 to-brand-yellow/10 dark:from-brand-orange/20 dark:to-brand-yellow/20">
     <img
       src={image}
       alt={title}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
       loading="lazy"
     />
     {badges && badges.length > 0 && (
       <div class="absolute top-2 left-2 flex flex-wrap gap-2">
         {badges.map((badge) => (
-          <span class="px-2 py-1 text-xs font-semibold bg-gecko-500 text-white rounded-full">
+          <span class="px-3 py-1 text-xs font-heading font-semibold bg-brand-yellow text-brand-navy rounded-full shadow-md">
             {badge}
           </span>
         ))}
       </div>
     )}
     <div class="absolute top-2 right-2">
-      <span class="px-2 py-1 text-xs font-semibold bg-gray-900/75 text-white rounded">
+      <span class="px-2 py-1 text-xs font-semibold bg-brand-navy/90 dark:bg-black/75 text-white rounded">
         {category}
       </span>
     </div>
   </div>
 
-  <div class="p-4">
-    <h3 class="font-bold text-lg mb-2 text-gray-900 dark:text-white line-clamp-2">
+  <div class="p-5">
+    <h3 class="font-heading font-bold text-lg mb-2 text-brand-navy dark:text-brand-sand line-clamp-2">
       {title}
     </h3>
 
-    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
+    <p class="text-brand-navy/70 dark:text-brand-sand/70 text-sm mb-3 line-clamp-2">
       {blurb}
     </p>
 
     <div class="flex items-center justify-between mb-4">
-      <span class="text-gecko-600 dark:text-gecko-400 font-semibold">
+      <span class="text-brand-orange dark:text-brand-yellow font-heading font-semibold text-lg">
         {priceHint}
       </span>
     </div>
@@ -57,13 +57,13 @@ const { title, slug, category, blurb, priceHint, image, badges = [], featured = 
         href={`/go/${slug}`}
         target="_blank"
         rel="sponsored nofollow noopener"
-        class="flex-1 bg-gecko-600 hover:bg-gecko-700 text-white py-2 px-4 rounded text-center text-sm font-semibold transition-colors"
+        class="flex-1 bg-brand-orange hover:bg-brand-navy text-white hover:text-brand-yellow py-2.5 px-4 rounded-lg text-center text-sm font-heading font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
       >
         See Price
       </a>
       <button
         data-modal-trigger={slug}
-        class="flex-1 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 py-2 px-4 rounded text-center text-sm font-semibold transition-colors"
+        class="flex-1 border-2 border-brand-navy dark:border-brand-yellow hover:bg-brand-yellow dark:hover:bg-brand-yellow hover:text-brand-navy dark:hover:text-brand-navy text-brand-navy dark:text-brand-yellow py-2.5 px-4 rounded-lg text-center text-sm font-heading font-semibold transition-all duration-200"
       >
         Why we like it
       </button>

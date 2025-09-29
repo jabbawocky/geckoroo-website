@@ -1,22 +1,31 @@
 ---
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+<header class="sticky top-0 z-50 bg-white dark:bg-brand-navy/95 backdrop-blur-sm border-b border-brand-orange/10 dark:border-brand-yellow/10 shadow-sm">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-gecko-500 rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-xl">G</span>
+      <a href="/" class="flex items-center space-x-2 group">
+        <div class="w-10 h-10 bg-brand-orange rounded-lg flex items-center justify-center group-hover:bg-brand-navy transition-colors">
+          <span class="text-white font-heading font-bold text-xl">G</span>
         </div>
-        <span class="text-xl font-bold text-gray-900 dark:text-white">GeckoRoo</span>
+        <span class="text-xl font-heading font-bold text-brand-navy dark:text-brand-sand">GeckoRoo</span>
       </a>
 
       <!-- Navigation -->
       <nav class="hidden md:flex items-center space-x-8">
-        <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-gecko-600 dark:hover:text-gecko-400 transition-colors">Home</a>
-        <a href="/picks" class="text-gray-700 dark:text-gray-300 hover:text-gecko-600 dark:hover:text-gecko-400 transition-colors">All Picks</a>
-        <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-gecko-600 dark:hover:text-gecko-400 transition-colors">About</a>
+        <a href="/" class="text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow transition-colors relative group">
+          <span>Home</span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange dark:bg-brand-yellow group-hover:w-full transition-all"></span>
+        </a>
+        <a href="/picks" class="text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow transition-colors relative group">
+          <span>All Picks</span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange dark:bg-brand-yellow group-hover:w-full transition-all"></span>
+        </a>
+        <a href="/about" class="text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow transition-colors relative group">
+          <span>About</span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange dark:bg-brand-yellow group-hover:w-full transition-all"></span>
+        </a>
       </nav>
 
       <!-- Right side -->
@@ -24,7 +33,7 @@
         <!-- Search trigger -->
         <button
           id="search-trigger"
-          class="p-2 text-gray-600 dark:text-gray-400 hover:text-gecko-600 dark:hover:text-gecko-400"
+          class="p-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow transition-colors"
           aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -34,7 +43,7 @@
         <!-- Dark mode toggle -->
         <button
           id="theme-toggle"
-          class="p-2 text-gray-600 dark:text-gray-400 hover:text-gecko-600 dark:hover:text-gecko-400"
+          class="p-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow transition-colors"
           aria-label="Toggle dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -47,7 +56,7 @@
         <!-- Mobile menu toggle -->
         <button
           id="mobile-menu-toggle"
-          class="md:hidden p-2 text-gray-600 dark:text-gray-400"
+          class="md:hidden p-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow"
           aria-label="Toggle menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -57,19 +66,19 @@
     </div>
 
     <!-- Mobile menu -->
-    <nav id="mobile-menu" class="hidden md:hidden pb-4">
-      <a href="/" class="block py-2 text-gray-700 dark:text-gray-300">Home</a>
-      <a href="/picks" class="block py-2 text-gray-700 dark:text-gray-300">All Picks</a>
-      <a href="/about" class="block py-2 text-gray-700 dark:text-gray-300">About</a>
+    <nav id="mobile-menu" class="hidden md:hidden pb-4 border-t border-brand-orange/10 dark:border-brand-yellow/10 mt-2">
+      <a href="/" class="block py-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow">Home</a>
+      <a href="/picks" class="block py-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow">All Picks</a>
+      <a href="/about" class="block py-2 text-brand-navy dark:text-brand-sand hover:text-brand-orange dark:hover:text-brand-yellow">About</a>
     </nav>
   </div>
 
   <!-- Search modal -->
-  <div id="search-modal" class="hidden fixed inset-0 z-50 bg-black/50" style="margin-top: 0;">
-    <div class="bg-white dark:bg-gray-900 p-4 shadow-xl">
+  <div id="search-modal" class="hidden fixed inset-0 z-50 bg-brand-navy/50 dark:bg-black/50" style="margin-top: 0;">
+    <div class="bg-white dark:bg-brand-navy p-4 shadow-xl border-b border-brand-orange/20">
       <div class="container mx-auto max-w-2xl">
         <div id="search"></div>
-        <button id="search-close" class="mt-4 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+        <button id="search-close" class="mt-4 text-sm text-brand-navy/60 hover:text-brand-orange dark:text-brand-sand/60 dark:hover:text-brand-yellow">
           Press ESC to close
         </button>
       </div>
@@ -130,11 +139,11 @@
         }
       } else {
         // Pagefind not available (dev mode or not built yet)
-        document.getElementById('search').innerHTML = '<p class="text-gray-500 p-4">Search is only available in production build.</p>';
+        document.getElementById('search').innerHTML = '<p class="text-brand-navy/60 dark:text-brand-sand/60 p-4">Search is only available in production build.</p>';
       }
     } catch (error) {
       console.log('Pagefind not available');
-      document.getElementById('search').innerHTML = '<p class="text-gray-500 p-4">Search is only available in production build.</p>';
+      document.getElementById('search').innerHTML = '<p class="text-brand-navy/60 dark:text-brand-sand/60 p-4">Search is only available in production build.</p>';
     }
   });
 
